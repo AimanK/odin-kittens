@@ -1,0 +1,26 @@
+<h1>Welcome to Index</h1>
+
+    <%= link_to "Create New Kitten", new_kitten_path %>
+
+
+    <% @kittens.each_with_index do |kitten, index| %>
+        <h4>Kitten #<%= index + 1 %></h4>
+        <ul>
+            <li>
+                <h4>Name:  <%= kitten.name %> </h4>
+            </li>
+            <li>
+                <h4>Age: <%= kitten.age %> </h4>
+            </li>
+            <li>
+                <h4>Cuteness: <%= kitten.cuteness %> </h4>
+            </li>
+            <li>
+                <h4>Softness: <%= kitten.softness %> </h4>
+            </li>
+            <li>
+                <%= link_to "View Kitten", kitten_path(kitten) %>
+                <%= link_to "Delete Kitten", kitten_path(kitten), method: :delete, data: { confirm: "Are you sure you want to delete this kitten?" } %>
+            </li>
+        </ul>
+    <% end %>
